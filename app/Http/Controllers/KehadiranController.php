@@ -50,7 +50,7 @@ class KehadiranController extends Controller
             'waktu_absen' => now()
         ]);
 
-        return redirect('/presensi');
+        return redirect('/mahasiswa');
     }
 
     /**

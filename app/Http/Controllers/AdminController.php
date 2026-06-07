@@ -21,7 +21,7 @@ class AdminController extends Controller
         $kelas = Kelas::with(['dosen', 'mataKuliah'])->get();
         $kehadiran = Kehadiran::all();
 
-        return view('admin.admin', compact('mahasiswa', 'dosen', 'matakuliah', 'kelas'));
+        return view('Admin.admin', compact('mahasiswa', 'dosen', 'matakuliah', 'kelas'));
     }
 
     // CREATE

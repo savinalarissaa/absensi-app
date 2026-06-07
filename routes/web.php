@@ -8,16 +8,32 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\AuthManager;
+
+Route::get('/home', function () {
+    return view('welcome'); # test web
+})->name('home');
 
 Route::get('/', function () {
-    return "halo";
+    return redirect(route('login'));
 });
 
-Route::get('/welcome-blade', function () {
-    return view('welcome'); # test web
-});
+# LOGIN USER
+Route::get('/login', [AuthManager::class, 'login'])->name('login');
+Route::post('/login', [AuthManager::class, 'loginPost'])->name('login.post');
+
+Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
+
+# REGISTER AKUN
+Route::get('/register/mahasiswa', [AuthManager::class, 'register_mahasiswa'])->name('register.mahasiswa');
+Route::post('/register/mahasiswa', [AuthManager::class, 'register_mahasiswa_post'])->name('register.mahasiswa.post');
+Route::get('/register/dosen', [AuthManager::class, 'register_dosen'])->name('register.dosen');
+Route::post('/register/dosen', [AuthManager::class, 'register_dosen_post'])->name('register.dosen.post');
 
 // ADMIN (BISA MELIHAT/EDIT SEGALA DATA)
+// Route::get('/admin', [AdminController::class, 'index'])
+//     ->middleware(['auth', 'admin']);
+
 Route::get('/admin', [AdminController::class, 'index']);
 Route::post('/admin', [AdminController::class, 'store']);
 Route::get('/admin/{id}', [AdminController::class, 'show']);

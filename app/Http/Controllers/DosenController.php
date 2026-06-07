@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dosen;
+use App\Models\Mahasiswa;
+use App\Models\Kelas;
+use App\Models\MataKuliah;
+
 use Illuminate\Http\Request;
 
 class DosenController extends Controller
@@ -12,7 +16,21 @@ class DosenController extends Controller
      */
     public function index()
     {
-        //
+        $mahasiswa = Mahasiswa::all();
+        $matakuliah = MataKuliah::all();
+        $dosen = Dosen::all();
+
+        $kelas = Kelas::with([
+            'mataKuliah',
+            'dosen'
+        ])->get();
+
+        return view('Dosen.dosen', compact(
+            'dosen',
+            'mahasiswa',
+            'kelas', 
+            'matakuliah'
+        ));
     }
 
     /**
@@ -26,7 +44,8 @@ class DosenController extends Controller
             'email' => $request->email
         ]);
 
-        return redirect('/admin');
+        // return redirect('/admin');
+        return redirect('/login');
     }
 
     /**
