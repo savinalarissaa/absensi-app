@@ -30,8 +30,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->enum('user_type', [
-                'Mahasiswa',
-                'Dosen'
+                'mahasiswa',
+                'dosen'
             ]);
         });
     }

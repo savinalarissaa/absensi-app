@@ -43,11 +43,23 @@ class KehadiranController extends Controller
      */
     public function store(Request $request)
     {
-        Kehadiran::create([
+    if ($request->status == 'Hadir') {
+        $request->validate([
+            'foto' => 'required|image|mimes:jpg,jpeg,png|max:2048'
+        ]);
+
+        $path = $request->file('foto')->store(
+            'presensi',
+            'public'
+        );
+    }    
+    
+    Kehadiran::create([
             'id_mahasiswa' => $request->id_mahasiswa,
             'id_kelas' => $request->id_kelas,
             'status' => $request->status,
-            'waktu_absen' => now()
+            'waktu_absen' => now(),
+            'foto' => $path ?? null,
         ]);
 
         return redirect('/mahasiswa');

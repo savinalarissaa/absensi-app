@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
   <div class="container-fluid">
 
     <a class="navbar-brand" href="#">
@@ -23,7 +23,7 @@
       <div class="d-flex">
         @auth
         <a href="{{ route('logout') }}"
-           class="btn btn-danger">
+           class="btn btn-primary">
           Logout
         </a>
         @endauth

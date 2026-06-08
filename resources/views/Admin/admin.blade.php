@@ -417,7 +417,7 @@
     </div>
 
     {{-- DATA KEHADIRAN --}}
-    <div class="container mt-5">
+    {{-- <div class="container mt-5">
         <h2 class="text-center">Data Kehadiran</h2>
 
         <table class="table table-striped table-hover">
@@ -459,7 +459,7 @@
         </table>
 
         {{-- Tambah Dosen --}}
-        <div class="mt-4 p-3 bg-light rounded">
+        {{-- <div class="mt-4 p-3 bg-light rounded">
             <h3>Tambah Mata Kuliah Baru</h3>
 
             <form action="{{ url('/mata-kuliah') }}" method="POST">
@@ -488,7 +488,7 @@
                 </button>
             </form>
         </div>
-    </div>
+    </div>  --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

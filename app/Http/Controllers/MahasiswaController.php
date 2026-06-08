@@ -48,7 +48,7 @@ class MahasiswaController extends Controller
         ->whereNotIn('id_kelas', $kelasSudahPresensi)
         ->get();
 
-        return view('mahasiswa.mahasiswa', compact(
+        return view('Mahasiswa.mahasiswa', compact(
             'mahasiswa',
             'kehadiran',
             'kelasBelumPresensi',

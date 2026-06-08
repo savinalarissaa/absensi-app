@@ -8,6 +8,7 @@ use App\Http\Controllers\DosenController;
 use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\KehadiranController;
+use App\Http\Controllers\LambdaController;
 use App\Http\Controllers\AuthManager;
 
 Route::get('/home', function () {
@@ -46,6 +47,11 @@ Route::post('/mahasiswa', [MahasiswaController::class, 'store']);
 Route::get('/mahasiswa/{id}', [MahasiswaController::class, 'show']);
 Route::put('/mahasiswa/{id}', [MahasiswaController::class, 'update']);
 Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
+
+// UPLOAD FOTO
+Route::get('/upload', [LambdaController::class, 'index']);
+Route::post('/upload', [LambdaController::class, 'upload'])
+    ->name('upload.s3');
 
 // DOSEN (Controller data dosen)
 Route::get('/dosen', [DosenController::class, 'index']);

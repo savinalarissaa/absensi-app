@@ -147,14 +147,24 @@
                 <div>
                     <label>Status</label>
 
-                    <select name="status" required>
-                        <option value="Hadir">Hadir</option>
+                    <select name="status" id="status" required>
+                        <option value="">-- Pilih Status --</option>
                         <option value="Izin">Izin</option>
-                        <option value="Sakit">Sakit</option>
                         <option value="Alpha">Alpha</option>
+                        <option value="Hadir">Hadir</option>
                     </select>
                 </div>
 
+                <br>
+                
+                <div id="foto-container" style="display:none;">
+                    <label>Upload Foto Kehadiran</label>
+                    <input
+                        type="file"
+                        name="foto"
+                        accept="image/*"
+                        class="form-control">
+                </div>
                 <br>
 
                 <button type="submit">

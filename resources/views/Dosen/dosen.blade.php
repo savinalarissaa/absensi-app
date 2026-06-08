@@ -57,6 +57,14 @@
 </head>
 
 <body>
+    <div class="container mt-3">
+        @auth
+            <div>
+                <h2>Selamat datang, <strong>{{ auth()->user()->name }}</strong> </h2>
+            </div>
+        @endauth
+    </div>
+
     {{-- DATA DOSEN --}}
     <div class="container mt-5">
         <h2 class="text-center">Data Dosen</h2>
