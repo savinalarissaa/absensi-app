@@ -13,7 +13,8 @@ class Kehadiran extends Model
         'id_mahasiswa',
         'id_kelas',
         'waktu_absen',
-        'status'
+        'status',
+        'foto_url'
     ];
 
     // belum ada foto absen

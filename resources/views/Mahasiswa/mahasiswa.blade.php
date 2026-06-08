@@ -192,7 +192,7 @@
                             {{-- Form Upload (hidden) --}}
                             <form
                                 id="upload-{{ $k->id_kelas }}"
-                                action="/presensi"
+                                action="{{ route('upload.s3') }}" 
                                 method="POST"
                                 enctype="multipart/form-data"
                                 style="display:none; margin-top:10px;">
@@ -283,7 +283,9 @@ function showUpload(idKelas) {
     }
 }
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
 @endsection

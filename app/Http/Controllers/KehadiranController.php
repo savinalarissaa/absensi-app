@@ -27,7 +27,7 @@ class KehadiranController extends Controller
             'kelas.mataKuliah'
         ])->get();
 
-        return view('kehadiran.kehadiran', compact('kehadiran', 'mahasiswa', 'dosen', 'matakuliah', 'kelas'));
+        return view('Kehadiran.kehadiran', compact('kehadiran', 'mahasiswa', 'dosen', 'matakuliah', 'kelas'));
     }
 
     /**

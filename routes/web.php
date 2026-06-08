@@ -50,8 +50,7 @@ Route::delete('/mahasiswa/{id}', [MahasiswaController::class, 'destroy']);
 
 // UPLOAD FOTO
 Route::get('/upload', [LambdaController::class, 'index']);
-Route::post('/upload', [LambdaController::class, 'upload'])
-    ->name('upload.s3');
+Route::post('/upload', [LambdaController::class, 'upload'])->name('upload.s3');
 
 // DOSEN (Controller data dosen)
 Route::get('/dosen', [DosenController::class, 'index']);

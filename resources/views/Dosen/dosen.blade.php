@@ -169,6 +169,34 @@
                 </tr>
             </thead>
 
+            <tbody>
+                @forelse($matakuliah as $mk)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $mk->nama_matkul }}</td>
+                        <td>{{ $mk->kode_matkul }}</td>
+
+                        <td class="action-buttons">
+                            <form action="/mata-kuliah/{{ $mk->id_matkul }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <button class="btn btn-sm btn-danger" type="submit">
+                                    Hapus
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5">
+                            Data mata kuliah tidak ditemukan.
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+
         {{-- Tambah Sesi Kelas --}}
         <div class="mt-4 p-3 bg-light rounded">
             <h3>Tambah Sesi Kelas Baru</h3>
