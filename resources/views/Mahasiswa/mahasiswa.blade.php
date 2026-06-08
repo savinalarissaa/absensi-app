@@ -59,7 +59,7 @@
 <body>
     {{-- DATA KEHADIRAN --}}
 <div class="container mt-5">
-    <h2 class="text-center">Presensi yang belum</h2>
+    <h2 class="text-center">Presensi</h2>
 
     <div class="tab-content mt-3">
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 @extends('layout')
-@section('title', 'Login')
+@section('title', 'Dashboard Dosen')
 @section('content')
 <html lang="en">
 

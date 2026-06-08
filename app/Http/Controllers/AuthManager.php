@@ -29,10 +29,6 @@ class AuthManager extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            if ((Auth::user()->email === 'admin@admin.com')&&(Auth::user()->type_user === 'admin')) {
-                return redirect('/admin');
-            }
-
             $request->session()->regenerate();
             $user = Auth::user();
 
@@ -42,6 +38,10 @@ class AuthManager extends Controller
 
             if ($user->user_type == 'mahasiswa') {
                 return redirect('/mahasiswa');
+            }
+
+            if ($user->user_type == 'admin') {
+                return redirect('/admin');
             }
 
             return redirect('/home');
