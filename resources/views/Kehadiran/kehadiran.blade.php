@@ -75,7 +75,7 @@
             <tbody>
                 @forelse($kehadiran as $k)
                     <tr>
-                        <td>{{ $k->id_kehadiran }}</td>
+                        {{-- <td>{{ $k->id_kehadiran }}</td>
                         <td>{{ $k->mahasiswa->nama }}</td>
                         <td>{{ $k->kelas->dosen->nama }}</td>
                         <td>{{ $k->kelas->mataKuliah->nama_matkul }}</td>
@@ -86,7 +86,19 @@
                             {{ substr($k->kelas->jam_mulai,0,5) }}
                             -
                             {{ substr($k->kelas->jam_selesai,0,5) }}
+                        </td> --}}
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $k->mataKuliah->nama_matkul }}</td>
+                        <td>{{ $k->dosen->nama }}</td>
+                        <td>{{ $k->topik }}</td>
+                        <td>{{ $k->tanggal_kelas }}</td>
+                        
+                        <td>
+                            {{ substr($k->jam_mulai, 0, 5) }}
+                            -
+                            {{ substr($k->jam_selesai, 0, 5) }}
                         </td>
+
                     </tr>
                 @empty
                     <tr>
@@ -156,7 +168,7 @@
                 </div>
 
                 <br>
-                
+
                 <div id="foto-container" style="display:none;">
                     <label>Upload Foto Kehadiran</label>
                     <input

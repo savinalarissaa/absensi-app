@@ -66,7 +66,7 @@
     </div>
 
     {{-- DATA DOSEN --}}
-    <div class="container mt-5">
+    {{-- <div class="container mt-5">
         <h2 class="text-center">Data Dosen</h2>
 
         <table class="table table-striped table-hover">
@@ -85,7 +85,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         {{-- <td>{{ $d->id_dosen }}</td> --}}
-                        <td>{{ $d->nama }}</td>
+                        {{-- <td>{{ $d->nama }}</td>
                         <td>{{ $d->nip }}</td>
                         <td>{{ $d->email }}</td>
 
@@ -109,6 +109,7 @@
                 @endforelse
             </tbody>
         </table>
+    </div> --}}
 
     {{-- DATA MATA KULIAH --}}
     <div class="container mt-5">
@@ -120,7 +121,7 @@
                     <th>No</th>
                     <th>Mata Kuliah</th>
                     <th>Kode</th>
-                    <th>Hapus</th>
+                    {{-- <th>Hapus</th> --}}
                 </tr>
             </thead>
 
@@ -131,7 +132,7 @@
                         <td>{{ $mk->nama_matkul }}</td>
                         <td>{{ $mk->kode_matkul }}</td>
 
-                        <td class="action-buttons">
+                        {{-- <td class="action-buttons">
                             <form action="/mata-kuliah/{{ $mk->id_matkul }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -140,7 +141,7 @@
                                     Hapus
                                 </button>
                             </form>
-                        </td>
+                        </td> --}}
                     </tr>
                 @empty
                     <tr>
@@ -165,19 +166,27 @@
                     <th>Topik</th>
                     <th>Tanggal</th>
                     <th>Waktu</th>
-                    <th>Hapus</th>
+                    {{-- <th>Hapus</th> --}}
                 </tr>
             </thead>
 
             <tbody>
-                @forelse($matakuliah as $mk)
+                @forelse($kelas as $k)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $mk->nama_matkul }}</td>
-                        <td>{{ $mk->kode_matkul }}</td>
+                        <td>{{ $k->mataKuliah->nama_matkul }}</td>
+                        <td>{{ $k->dosen->nama }}</td>
+                        <td>{{ $k->topik }}</td>
+                        <td>{{ $k->tanggal_kelas }}</td>
+                        
+                        <td>
+                            {{ substr($k->jam_mulai, 0, 5) }}
+                            -
+                            {{ substr($k->jam_selesai, 0, 5) }}
+                        </td>
 
-                        <td class="action-buttons">
-                            <form action="/mata-kuliah/{{ $mk->id_matkul }}" method="POST">
+                        {{-- <td class="action-buttons">
+                            <form action="/mata-kuliah/{{ $k->id_matkul }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
@@ -185,7 +194,7 @@
                                     Hapus
                                 </button>
                             </form>
-                        </td>
+                        </td> --}}
                     </tr>
                 @empty
                     <tr>

@@ -49,7 +49,7 @@ class KelasController extends Controller
         'topik' => $request->topik,
         ]);
 
-        return redirect('/admin');
+        return redirect('/dosen');
     }
 
     /**

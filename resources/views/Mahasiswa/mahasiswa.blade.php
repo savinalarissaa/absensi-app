@@ -95,9 +95,9 @@
         {{-- BELUM PRESENSI --}}
         <div class="tab-pane fade show active" id="belum">
 
-            <table class="table table-bordered">
+            <table class="table table-striped table-hover">
 
-                <thead>
+                <thead class="table-dark">
                     <tr>
                         <th>Mata Kuliah</th>
                         <th>Topik</th>
@@ -220,7 +220,7 @@
                                 <button
                                     type="submit"
                                     class="btn btn-primary btn-sm mt-1">
-                                    Upload & Simpan
+                                    Upload foto bukti
                                 </button>
 
                             </form>
@@ -241,9 +241,9 @@
         {{-- RIWAYAT --}}
         <div class="tab-pane fade" id="riwayat">
 
-            <table class="table table-bordered">
+            <table class="table table-striped table-hover">
 
-                <thead>
+                <thead class="table-dark">
                     <tr>
                         <th>Mata Kuliah</th>
                         <th>Topik</th>
