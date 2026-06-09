@@ -3,8 +3,8 @@
 @section('content')
     
 <div class="container">
-    <div class="mt-4 p-3 bg-light rounded">
-        <h3>Registrasi Mahasiswa</h3>
+    <div class="mt-4 p-3 bg-white rounded">
+        <h3 class="text-center">Registrasi Mahasiswa</h3>
 
         <form action="{{ route('register.mahasiswa.post') }}" method="POST">
             @csrf

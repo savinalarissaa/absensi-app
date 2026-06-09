@@ -113,7 +113,7 @@
 
     {{-- DATA MATA KULIAH --}}
     <div class="container mt-5">
-        <h2 class="text-center">Data Mata Kuliah</h2>
+        <h2 class="text-center">List Mata Kuliah</h2>
 
         <table class="table table-striped table-hover">
             <thead class="table-dark">
@@ -155,7 +155,7 @@
 
     {{-- DATA KELAS --}}
     <div class="container mt-5">
-        <h2 class="text-center">Data Sesi Kelas</h2>
+        <h2 class="text-center">List Sesi Kelas</h2>
 
         <table class="table table-striped table-hover">
             <thead class="table-dark">
@@ -261,7 +261,7 @@
                     <input type="text" name="topik" required>
                 </div>
 
-                <button type="submit">
+                <button type="submit" class="btn btn-primary">
                     Simpan Kelas
                 </button>
             </form>
