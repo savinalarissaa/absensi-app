@@ -4,7 +4,15 @@
     
 <div class="container">
     <div class="mt-4 p-3 bg-white rounded">
-        <h3 class="text-center">Registrasi Mahasiswa</h3>
+        <div class="d-flex justify-content-between align-items-right mb-3">
+            <h2 class="mb-0"> </h2>
+
+            <a href="/login" class="btn btn-primary">
+                ← Back
+            </a>
+        </div>
+        
+        <h2 class="text-center">Registrasi Mahasiswa</h2>
 
         <form action="{{ route('register.mahasiswa.post') }}" method="POST">
             @csrf

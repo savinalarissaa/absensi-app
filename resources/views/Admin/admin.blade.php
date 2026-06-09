@@ -86,7 +86,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button type="submit">
+                                <button class="btn btn-sm btn-danger" type="submit">
                                     Hapus
                                 </button>
                             </form>
@@ -100,11 +100,11 @@
             </tbody>
         </table>
 
-        {{-- form tambah data --}}
+        {{-- form tambah data mahasiswa --}}
         <div class="mt-4 p-3 bg-light rounded">
             <h3>Tambah Mahasiswa Baru</h3>
 
-            <form action="{{ url('/mahasiswa') }}" method="POST">
+            <form action="{{ route('register.mahasiswa.post') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
@@ -190,7 +190,7 @@
         <div class="mt-4 p-3 bg-light rounded">
             <h3>Tambah Dosen Baru</h3>
 
-            <form action="{{ url('/dosen') }}" method="POST">
+            <form action="{{ route('register.dosen.post') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">
