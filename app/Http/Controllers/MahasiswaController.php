@@ -59,25 +59,25 @@ class MahasiswaController extends Controller
 
     // CREATE
     public function store(Request $request)
-{
-    $request->validate([
-        'foto' => 'required|image|max:5120'
-    ]);
+    {
+        $request->validate([
+            'foto' => 'required|image|max:5120'
+        ]);
 
-    $foto = $request->file('foto');
+        $foto = $request->file('foto');
 
-    // Upload ke Lambda
-    $response = Http::timeout(30)->post(
-        'https://u5cfo8e1xd.execute-api.us-east-1.amazonaws.com/prod/upload',
-        [
-            'filename' => time().'_'.$foto->getClientOriginalName(),
-            'file' => base64_encode(
-                file_get_contents($foto->getRealPath())
-            )
-        ]
-    );
+        // Upload ke Lambda
+        $response = Http::timeout(30)->post(
+            'https://u5cfo8e1xd.execute-api.us-east-1.amazonaws.com/prod/upload',
+            [
+                'filename' => time().'_'.$foto->getClientOriginalName(),
+                'file' => base64_encode(
+                    file_get_contents($foto->getRealPath())
+                )
+            ]
+        );
 
-    $hasil = $response->json();
+        $hasil = $response->json();
 
         // Simpan presensi
         Kehadiran::create([

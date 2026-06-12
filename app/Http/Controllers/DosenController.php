@@ -17,6 +17,8 @@ class DosenController extends Controller
      */
     public function index()
     {
+        // $id = session('dosen_id');
+        // $dosen = Dosen::findOrFail($id);    
         $mahasiswa = Mahasiswa::all();
         $matakuliah = MataKuliah::all();
         $dosen = Dosen::all();
@@ -47,6 +49,16 @@ class DosenController extends Controller
 
         // return redirect('/admin');
         return redirect('/login');
+    }
+
+    public function beri_notifikasi(Request $apiGatewayUrl){
+        Http::post(
+            $apiGatewayUrl,
+            [
+                'subject' => 'Absensi Mahasiswa',
+                'message' => 'Mahasiswa Budi berhasil melakukan absensi'
+            ]
+        );
     }
 
     /**

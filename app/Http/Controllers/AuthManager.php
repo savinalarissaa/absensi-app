@@ -129,4 +129,23 @@ class AuthManager extends Controller
         return redirect(route('login'));
     }
 
+    public function callback(Request $request)
+    {
+        $response = Http::asForm()->post(
+            env('COGNITO_TOKEN_URL'),
+            [
+                'grant_type' => 'authorization_code',
+                'client_id' => env('COGNITO_CLIENT_ID'),
+                'client_secret' => env('COGNITO_CLIENT_SECRET'),
+                'code' => $request->code,
+                'redirect_uri' =>
+                    env('COGNITO_REDIRECT_URI')
+            ]
+        );
+
+        $tokens = $response->json();
+
+        dd($tokens);
+    }
+
 }

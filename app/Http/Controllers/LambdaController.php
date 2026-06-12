@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\Kehadiran;
+use Aws\Lambda\LambdaClient;
 
 class LambdaController extends Controller
 {
@@ -60,4 +61,26 @@ class LambdaController extends Controller
         return redirect('/mahasiswa')
             ->with('success', 'Presensi berhasil disimpan');
     }
+
+    public function notifikasiAbsen()
+    {
+        $response = Http::post(
+            env('LAMBDA_API_URL'),
+            [
+                'subject' => 'Absensi Mahasiswa',
+                'message' => [
+                    'nim' => '235150300111027',
+                    'nama' => 'Budi',
+                    'status' => 'Hadir',
+                    'waktu' => now()->toDateTimeString(),
+                ]
+            ]
+        );
+
+        return response()->json([
+            'status' => $response->status(),
+            'body' => $response->json()
+        ]);
+    }
+
 }

@@ -31,6 +31,33 @@ Route::post('/register/mahasiswa', [AuthManager::class, 'register_mahasiswa_post
 Route::get('/register/dosen', [AuthManager::class, 'register_dosen'])->name('register.dosen');
 Route::post('/register/dosen', [AuthManager::class, 'register_dosen_post'])->name('register.dosen.post');
 
+## Cognito
+// Route::get('/login-cognito', [CognitoController::class, 'register_mahasiswa'])->name('register.mahasiswa');
+// Route::post('/login-cognito', [CognitoController::class, 'register_mahasiswa_post'])->name('register.mahasiswa.post');
+
+Route::get('/login/cognito', function () {
+
+    $clientId = env('COGNITO_CLIENT_ID');
+
+    $domain = env('COGNITO_DOMAIN');
+
+    $redirectUri = urlencode(
+        env('COGNITO_REDIRECT_URI')
+    );
+
+    return redirect(
+        "https://{$domain}/login"
+        . "?client_id={$clientId}"
+        . "&response_type=code"
+        . "&scope=email"
+        . "&redirect_uri={$redirectUri}"
+    );
+
+});
+Route::get('/auth/callback',
+    [AuthController::class, 'callback']
+);
+
 // ADMIN (BISA MELIHAT/EDIT SEGALA DATA)
 // Route::get('/admin', [AdminController::class, 'index'])
 //     ->middleware(['auth', 'admin']);
@@ -58,6 +85,7 @@ Route::post('/dosen', [DosenController::class, 'store']);
 Route::get('/dosen/{id}', [DosenController::class, 'show']);
 Route::put('/dosen/{id}', [DosenController::class, 'update']);
 Route::delete('/dosen/{id}', [DosenController::class, 'destroy']);
+// Route::get('/dosen', [CognitoController::class, 'cognitoCallback']);
 
 // MATAKULIAH (Controller data matkul)
 Route::get('/mata-kuliah', [MataKuliahController::class, 'index']);
@@ -79,3 +107,13 @@ Route::post('/presensi', [KehadiranController::class, 'store']);
 Route::get('/presensi/{id}', [KehadiranController::class, 'show']);
 Route::put('/presensi/{id}', [KehadiranController::class, 'update']);
 Route::delete('/presensi/{id}', [KehadiranController::class, 'destroy']);
+
+// Notifikasi
+Route::get('/publish/notifikasi', [LambdaController::class, 'notifikasiAbsen']);
+Route::post('/publish/notifikasi', [LambdaController::class, 'notifikasiAbsen']);
+// Route::post('/webhook/notifikasi', function (Request $request) {
+
+//     Log::info('SNS Notification', $request->all());
+
+//     return response('OK', 200);
+// });
